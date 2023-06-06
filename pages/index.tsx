@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
+import Home from '../components/home'
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
+  
   return (
-    <section className=''>
-      This site is under construction
-    </section>
+    <Home />
   )
 }
 
-export default Home
+export default HomePage

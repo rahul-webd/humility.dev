@@ -5,7 +5,7 @@ export type PostModel = {
     description: string[]
 }
 
-export const Post = ({ image, date, title, description }: PostModel) => {
+const Post = ({ image, date, title, description }: PostModel) => {
 
     return (
         <div>
@@ -34,3 +34,5 @@ export const Post = ({ image, date, title, description }: PostModel) => {
         </div>
     )
 }
+
+export default Post;

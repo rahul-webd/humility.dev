@@ -18,6 +18,7 @@ export const fetchEntries = async () => {
             }
         }
     }
+    
     return {
         ok: false,
         items: []

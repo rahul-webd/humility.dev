@@ -1,24 +1,39 @@
-export type Preview = {
-    title: string,
-    date: string
+import { Entry } from "contentful"
+import { useRouter } from "next/router"
+import { PostModel } from "./Post"
+
+type PreviewProps = {
+    post: Entry<PostModel>,
+    className?: string,
 }
 
-const Preview = ({ preview, className }: {
-    preview: Preview,
-    className?: string,
-}) => {
+const Preview = ({ post, className }: PreviewProps) => {
+    const router = useRouter()
+
+    const navPost = () => {
+        const id = post.sys.id
+        router.push(`/blog/${id}`)
+    }
+
+    const { title, date } = post.fields
 
     return (
-        <section
+        <button
+            onClick={navPost}
             className={`flex items-center justify-between 
-                w-full ${className}`}>
-            <p>
-                { preview.title }
+                w-full font-semibold border-t text-start
+                border-amber-900 p-4 first:border-t-0 
+                hover:translate-x-8 transition duration-300 
+                ${className}`}>
+            <p
+                className="w-60 md:w-max mr-4">
+                { title }
             </p>
-            <p>
-                { preview.date }
+            <p
+                className="whitespace-nowrap">
+                { date.slice(0, 10) }
             </p>
-        </section>
+        </button>
     )
 }
 

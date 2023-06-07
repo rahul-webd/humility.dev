@@ -17,8 +17,7 @@ const Home = ({
                 className="mb-24 md:mb-32" />
             <Experience
                 className="mb-px" />
-            <Companies
-                className="mb-24 md:mb-32" />
+            <Companies />
         </section>
     )
 }

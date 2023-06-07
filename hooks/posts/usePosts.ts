@@ -1,20 +1,10 @@
-import { ContentType, createClient, Entry } from "contentful"
-import { useEffect, useState } from "react"
-import { CONTENTFUL_DELIVERY_KEY, CONTENTFUL_SPACE } from "../../utils/constants"
-
-const client = createClient({
-    space: CONTENTFUL_SPACE as string,
-    accessToken: CONTENTFUL_DELIVERY_KEY as string
-})
-
-export type PostPreview = {
-    title: string,
-    bannerImg: string,
-    date: string
-}
+import { Entry } from "contentful"
+import { useEffect, useState, useContext } from "react"
+import { AppContext } from "../../components/app/App"
+import { PostModel } from "../../components/posts/Post"
 
 export type Config = {
-    posts: (ContentType | Entry<PostPreview>)[],
+    posts: Entry<PostModel>[],
     loading: boolean,
     skip: number,
     limit: number,
@@ -29,22 +19,27 @@ const initialConfig: Config = {
     more: true
 }
 
-const usePosts = (contentType: string) => {
+const usePosts = (contentType: string, type: string) => {
     const [sConfig, setSConfig] = useState<Config>(initialConfig)
+    const appContext = useContext(AppContext)
+    const client = appContext?.cfClient;
     
     useEffect(() => {
-        if (sConfig.skip < 0) return;
+        if ((sConfig.skip < 0) || !contentType || !type) return;
 
         const handlePosts = async () => {
+            if (!client) return;
+
             setSConfig(prev => ({
                 ...prev,
                 loading: true
             }))
 
-            const col = await client.getEntries({
+            const col = await client.getEntries<PostModel>({
                 content_type: contentType,
                 skip: sConfig.skip,
                 limit: sConfig.limit,
+                'metadata.tags.sys.id[all]': `${type}`
             })
 
             setSConfig(prev => ({
@@ -63,7 +58,7 @@ const usePosts = (contentType: string) => {
         }
     
         handlePosts()
-    }, [sConfig.skip, contentType, sConfig.limit])
+    }, [sConfig.skip, contentType, type, sConfig.limit, client])
 
     const refresh = () => {
         setSConfig(prev => ({

@@ -29,9 +29,9 @@ const Connect = ({
                 </article>
                 <p
                     className='text-lg text-green-700 font-semibold md:ml-2'>
-                    Shoot me a message if you need any consulting
-                    or advice with anything. I will usually be
-                    responding to you in a few hours.
+                    Shoot me a message if you need consulting
+                    or quote for a new project. I will usually be 
+                    responding you in a few hours.
                 </p>
             </div>
             <div

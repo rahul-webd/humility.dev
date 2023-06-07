@@ -1,39 +1,41 @@
-import usePosts, { PostPreview } from "../../hooks/posts/usePosts"
+import usePosts from "../../hooks/posts/usePosts"
 import ScrollObserver from "../observers/ScrollObserver"
+import Loading from "../utils/Loading"
 import Preview from "./Preview"
 
 export type PostsProps = {
     contentType: string,
+    type: string,
     className?: string
 }
 
 const Posts = ({ 
     contentType, 
-    className 
+    type,
+    className = ''
 }: PostsProps) => {
-    const { sConfig, next } = usePosts(contentType)
+    const { sConfig, next } = usePosts(contentType, type)
     
     return (
         <section
-            className={className}>
+            className={`px-4 md:px-8 max-w-6xl mx-auto
+                pt-4 md:pt-8 ${className}`}>
             <ScrollObserver
                 action={next}
                 className='flex flex-col items-center'>
                 {
-                    sConfig.posts.map(({ fields }, i) => {
+                    sConfig.posts.map((post, i) => {
 
                         return (
                             <Preview
                                 key={i}
-                                preview={{
-                                    title: (fields as PostPreview).title,
-                                    date: (fields as PostPreview).date.substring(0, 10)
-                                }}
-                                className='mb-2 md:mb-4' />
+                                post={post} />
                         )
                     })
                 }
             </ScrollObserver>
+            <Loading
+                loading={sConfig.loading} />
         </section>
     )
 }

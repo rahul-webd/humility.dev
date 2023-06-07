@@ -14,7 +14,7 @@ const Header = ({
         <header
             className={`flex items-center justify-center ${className}`}>
             <Nav
-                className="mr-8 md:mr-32" />
+                className="mr-12 md:mr-32" />
             <Logo />
         </header>
     )

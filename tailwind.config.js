@@ -9,6 +9,9 @@ module.exports = {
       transitionProperty: {
         'width': 'width',
         'height': 'height'
+      },
+      fontFamily: {
+        parisienne: ['parisienne', 'cursive']
       }
     },
   },

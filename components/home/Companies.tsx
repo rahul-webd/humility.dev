@@ -6,19 +6,22 @@ export type CompaniesProps = {
     className?: string
 }
 
-const Companies = ({ className }: CompaniesProps) => {
+const Companies = ({ className = '' }: CompaniesProps) => {
 
     return (
         <div
-            className={className}>
+            className={`flex flex-wrap justify-center
+                bg-amber-200 ${className}`}>
             <Company
                 img={LedgerwiseLogo}
                 title='Ledgewise'
-                link='https://ledgerwise.io' />
+                link='https://ledgerwise.io'
+                className='m-4 md:mx-8' />
             <Company
                 img={RepExpressLogo}
                 title='Reptiles Express'
-                link='https://reptilesexpress.com' />
+                link='https://reptilesexpress.com'
+                className='m-4 md:mx-8' />
         </div>
     )
 }

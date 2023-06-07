@@ -4,12 +4,14 @@ export interface P2Props extends DetailedHTMLProps<HTMLAttributes<HTMLParagraphE
 
 const P2 = ({
     children,
+    className = '',
     ...rest
 }: P2Props) => {
 
     return (
         <p
-            {...rest}>
+            {...rest}
+            className={`text-green-900 font-medium ${className}`}>
             {children}
         </p>
     )

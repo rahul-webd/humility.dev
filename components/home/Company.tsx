@@ -24,9 +24,10 @@ const Company = ({
             className={className}>
             <Image
                 src={img}
-                height={40}
-                width={40}
-                alt={title} />
+                height={90}
+                width={180}
+                alt={title}
+                className="object-contain" />
         </button>
     )
 }

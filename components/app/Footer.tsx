@@ -11,9 +11,9 @@ const Footer = ({
 
     return (
         <footer
-            className={className}>
+            className={`px-4 md:px-8 ${className}`}>
             <Connect
-                className="mb-8 md:mb-16" />
+                className="mb-8 md:mb-24" />
             <Copyright />
         </footer>
     )

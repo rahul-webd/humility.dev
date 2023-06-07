@@ -1,7 +1,7 @@
 import { FaArrowRight, FaTelegram, FaDiscord, FaLinkedin } from 'react-icons/fa'
 import { SiGmail } from 'react-icons/si'
 import ConnectBtn from './ConnectBtn'
-
+import { openDiscord, openGmail, openLinkedin, openTg } from './helpers'
 
 export type ConnectProps = {
     className?: string
@@ -28,7 +28,7 @@ const Connect = ({
                     <p>Connect</p>
                 </article>
                 <p
-                    className='text-lg text-green-600 font-bold md:ml-2'>
+                    className='text-lg text-green-700 font-semibold md:ml-2'>
                     Shoot me a message if you need any consulting
                     or advice with anything. I will usually be
                     responding to you in a few hours.
@@ -41,19 +41,23 @@ const Connect = ({
                 <ConnectBtn
                     icon={(
                         <SiGmail />
-                    )} />
+                    )}
+                    onClick={openGmail} />
                 <ConnectBtn
                     icon={(
                         <FaLinkedin />
-                    )} />
+                    )}
+                    onClick={openLinkedin} />
                 <ConnectBtn
                     icon={(
                         <FaTelegram />
-                    )} />
+                    )}
+                    onClick={openTg} />
                 <ConnectBtn
                     icon={(
                         <FaDiscord />
-                    )} />
+                    )}
+                    onClick={openDiscord} />
             </div>
         </section>
     )

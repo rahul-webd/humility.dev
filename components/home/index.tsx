@@ -13,9 +13,12 @@ const Home = ({
     return (
         <section
             className={className}>
-            <About />
-            <Experience />
-            <Companies />
+            <About
+                className="mb-24 md:mb-32" />
+            <Experience
+                className="mb-px" />
+            <Companies
+                className="mb-24 md:mb-32" />
         </section>
     )
 }

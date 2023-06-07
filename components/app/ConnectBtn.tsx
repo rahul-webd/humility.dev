@@ -14,7 +14,9 @@ const ConnectBtn = ({
         <button
             className={`bg-amber-400 text-black
                 rounded-full h-20 w-20 md:h-40 md:w-40 flex
-                justify-center items-center ${className}`}
+                justify-center items-center
+                hover:shadow-2xl transition duration-300
+                active:scale-[0.92] ${className}`}
             {...rest}>
             {
                 cloneElement(icon, {

@@ -4,12 +4,14 @@ export interface P1Props extends DetailedHTMLProps<HTMLAttributes<HTMLParagraphE
 
 const P1 = ({
     children,
+    className = '',
     ...rest
 }: P1Props) => {
 
     return (
         <p
-            {...rest}>
+            {...rest}
+            className={`font-semibold text-3xl ${className}`}>
             {children}
         </p>
     )

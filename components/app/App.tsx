@@ -13,15 +13,14 @@ type ContextProps = {
     cfClient: ContentfulClientApi
 }
 
+const client = createClient({
+    space: CONTENTFUL_SPACE as string,
+    accessToken: CONTENTFUL_DELIVERY_KEY as string
+})
+
 export const AppContext = createContext<ContextProps | null>(null)
 
-const App = ({ children, className = '' }: AppProps) => {    
-    
-    const client = createClient({
-        space: CONTENTFUL_SPACE as string,
-        accessToken: CONTENTFUL_DELIVERY_KEY as string
-    })
-    
+const App = ({ children, className = '' }: AppProps) => {        
 
     return (
         <AppContext.Provider

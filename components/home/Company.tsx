@@ -27,7 +27,8 @@ const Company = ({
                 height={90}
                 width={180}
                 alt={title}
-                className="object-contain" />
+                className="object-contain"
+                placeholder="blur" />
         </button>
     )
 }

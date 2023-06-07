@@ -32,7 +32,8 @@ const About = ({ className = '' }: AboutProps) => {
                         style={{
                             borderRadius: '9999px',
                             objectFit: 'cover',
-                        }} />
+                        }}
+                        placeholder="blur" />
                     <div
                         className="flex items-center mt-8">
                         <p

@@ -1,14 +1,18 @@
 import { useState, useEffect, useContext } from 'react'
 import { AppContext } from '../app/App'
-import { Entry } from 'contentful'
+import { Asset, Entry } from 'contentful'
 import Loading from '../utils/Loading'
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer'
-import { BLOCKS } from '@contentful/rich-text-types'
+import { BLOCKS, INLINES } from '@contentful/rich-text-types'
+import Image from 'next/image'
 
-export type PostType = 'devPost' | 'blogPost'
+export type PostType =
+    | 'devPost' 
+    | 'blogPost' 
+    | 'workPost'
 
 export type PostModel = {
-    image?: string,
+    bannerImage?: Asset,
     date: string,
     title: string,
     description: any
@@ -53,17 +57,43 @@ function Post ({ id, className = '' }: PostProps) {
     const options: Options = {
         renderNode: {
             [BLOCKS.PARAGRAPH]: (node, children) => {
+
                 return (
                     <p
-                        className='mb-4'>
+                        className='mb-4 font-medium'>
                         {children}
                     </p>
+                )
+            },
+            [INLINES.HYPERLINK]: (node, children) => {
+
+                return (
+                    <a
+                        href={node.data.uri} target='_blank'
+                        rel='noreferrer'
+                        className='text-sky-700 font-medium underline
+                            hover:text-sky-900'>
+                        {children}
+                    </a>
+                )
+            },
+            [BLOCKS.UL_LIST]: (node, children) => {
+
+                return (
+                    <ul
+                        className='list-disc font-medium my-8
+                            ml-4'>
+                        {children}
+                    </ul>
                 )
             }
         }
     }
 
-    const { title, date, description } = post.fields
+    const { title, date, description, bannerImage } = post.fields
+
+    const imgSrc = `https:${bannerImage?.fields.file.url}`
+    const imgAlt = bannerImage?.fields.title
 
     return (
         <div
@@ -71,6 +101,22 @@ function Post ({ id, className = '' }: PostProps) {
                 bg-amber-100 ${className}`}>
             <article
                 className='max-w-3xl mx-auto'>
+                {
+                    imgSrc
+                        && (
+                            <div
+                                className='mb-8'>
+                                <Image
+                                    src={imgSrc}
+                                    alt={imgAlt}
+                                    height={400}
+                                    width={768}
+                                    objectFit="contain"
+                                    placeholder="blur"
+                                    blurDataURL='/work/placeholder.jpg' />
+                            </div>
+                        )
+                }
                 <h2
                     className='font-semibold text-2xl mb-2'>
                     {title}

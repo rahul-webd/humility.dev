@@ -39,8 +39,12 @@ const usePosts = (contentType: string, type: string) => {
                 content_type: contentType,
                 skip: sConfig.skip,
                 limit: sConfig.limit,
-                'metadata.tags.sys.id[all]': `${type}`
+                'metadata.tags.sys.id[all]': `${type}`,
+                select: 'fields.bannerImage,fields.title,fields.date',
+                order: '-sys.createdAt'
             })
+
+            console.log(col)
 
             setSConfig(prev => ({
                 ...prev,

@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import Posts from "../../components/posts";
+import Posts from "../../components/blog";
 
 const PrivateBlogPage: NextPage = () => {
 

@@ -1,6 +1,6 @@
 import { Entry } from "contentful"
 import { useRouter } from "next/router"
-import { PostModel } from "./Post"
+import { PostModel } from "../posts/Post"
 
 type PreviewProps = {
     post: Entry<PostModel>,

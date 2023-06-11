@@ -15,7 +15,8 @@ const Preview = ({ data, className = '' }: PreviewProps) => {
     const router = useRouter()
 
     const { title, bannerImage } = data.fields
-    const imgSrc = `https:${bannerImage?.fields.file.url}` || srcDefault
+    const imgUrl = bannerImage?.fields.file.url
+    const imgSrc = imgUrl ? `https:${imgUrl}` : srcDefault
     const imgAlt = bannerImage?.fields.title || altDefault
 
     const navPost = () => {

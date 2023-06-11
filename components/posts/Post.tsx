@@ -92,7 +92,8 @@ function Post ({ id, className = '' }: PostProps) {
 
     const { title, date, description, bannerImage } = post.fields
 
-    const imgSrc = `https:${bannerImage?.fields.file.url}`
+    const imgUrl = bannerImage?.fields.file.url
+    const imgSrc = imgUrl && `https:${imgUrl}`
     const imgAlt = bannerImage?.fields.title
 
     return (

@@ -30,12 +30,13 @@ const App = ({ children, className = '' }: AppProps) => {
             <section
                 className={`bg-amber-50 min-h-screen
                     text-black pt-4 md:pt-6 flex flex-col
-                    justify-between pb-4 ${className}`}>
+                    justify-between pb-4 font-inter ${className}`}>
                 <div
                     className="mb-24 md:mb-32">
                     <Header
                         className="mb-8" />
-                    <main>
+                    <main
+                        className="min-h-screen">
                         {children}
                     </main>
                 </div>

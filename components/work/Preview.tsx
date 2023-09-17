@@ -29,38 +29,26 @@ const Preview = ({ data, className = '' }: PreviewProps) => {
         <div
             onClick={navPost}
             className={`bg-amber-100 border
-                rounded-lg max-w-[320px]
-                transition duration-1000
-                shadow hover:shadow-xl
-                cursor-pointer ${className}`}>
+                rounded-xl max-w-[320px]
+                transition duration-300
+                shadow hover:-translate-y-3
+                hover:shadow-xl cursor-pointer ${className}`}>
             <div
-                className="relative max-h-[200px] max-w-[320px]
-                    rounded-t-lg overflow-hidden">
+                className="relative overflow-hidden p-3">
                 <Image
                     src={imgSrc}
                     alt={imgAlt}
-                    height={200}
-                    width={320}
+                    height={220}
+                    width={296}
                     objectFit="cover"
                     placeholder="blur"
                     blurDataURL='/work/placeholder.jpg'
-                    className="blur" />
-                <div
-                    className="absolute inset-x-0 inset-y-0">
-                    <Image
-                        src={imgSrc}
-                        alt={imgAlt}
-                        height={200}
-                        width={320}
-                        objectFit="contain"
-                        placeholder="blur"
-                        blurDataURL='/work/placeholder.jpg' />
-                </div>
+                    className="rounded-xl" />
             </div>
             <article
-                className="px-4 pt-2 pb-4">
+                className="px-5 pt-1 pb-4">
                 <p
-                    className="font-semibold">
+                    className="font-bold text-lg">
                     {title}
                 </p>
             </article>

@@ -44,8 +44,6 @@ const usePosts = (contentType: string, type: string) => {
                 order: '-sys.createdAt'
             })
 
-            console.log(col)
-
             setSConfig(prev => ({
                 ...prev,
                 posts: sConfig.skip === 0 ? col.items : [

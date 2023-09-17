@@ -11,7 +11,8 @@ module.exports = {
         'height': 'height'
       },
       fontFamily: {
-        parisienne: ['parisienne', 'cursive']
+        parisienne: ['parisienne', 'cursive'],
+        inter: ['inter', 'sans-serif']
       }
     },
   },

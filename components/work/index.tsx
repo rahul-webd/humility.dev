@@ -19,7 +19,8 @@ const Work = ({ contentType, type, className = '' }: PostsProps) => {
                 ${className}`}>
             <ScrollObserver
                 action={next}
-                className='flex flex-wrap justify-center'>
+                className='grid grid-cols-1 md:grid-cols-2
+                    lg:grid-cols-3 2xl:grid-cols-4'>
                 {
                     sConfig.posts.map((post, i) => {
 

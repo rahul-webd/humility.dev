@@ -3,7 +3,7 @@ export const openGmail = () => {
 }
 
 export const openLinkedin = () => {
-    window.open('https://www.linkedin.com/in/rahul-gautam-23a9a3175/', '_blank')
+    window.open('https://www.linkedin.com/in/hey-rahul/', '_blank')
 }
 
 export const openTg = () => {

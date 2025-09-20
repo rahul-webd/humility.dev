@@ -15,6 +15,7 @@ export type PostModel = {
     bannerImage?: Asset,
     date: string,
     title: string,
+    shortDescription: string
     description: any
 }
 
@@ -98,36 +99,38 @@ function Post ({ id, className = '' }: PostProps) {
 
     return (
         <div
-            className={`px-4 py-4 md:px-8 md:py-8
-                bg-amber-100 ${className}`}>
+            className={`p-2 md:p-8 bg-amber-100 ${className}`}>
             <article
-                className='max-w-3xl mx-auto'>
+                className='max-w-3xl mx-auto bg-white
+                    p-4 md:p-8'>
                 {
                     imgSrc
                         && (
                             <div
-                                className='mb-8'>
+                                className='mb-8 w-full'>
                                 <Image
                                     src={imgSrc}
                                     alt={imgAlt}
                                     height={400}
                                     width={768}
-                                    objectFit="contain"
+                                    objectFit="cover"
                                     placeholder="blur"
                                     blurDataURL='/work/placeholder.jpg' />
                             </div>
                         )
                 }
-                <h2
-                    className='font-semibold text-2xl mb-2'>
-                    {title}
-                </h2>
-                <h6
-                    className='mb-8 font-medium'>
-                    {date.substring(0, 10)}
-                </h6>
                 <div>
-                    {documentToReactComponents(description, options)}
+                    <h2
+                        className='font-semibold text-2xl mb-2'>
+                        {title}
+                    </h2>
+                    <h6
+                        className='mb-8 font-medium'>
+                        {date.substring(0, 10)}
+                    </h6>
+                    <div>
+                        {documentToReactComponents(description, options)}
+                    </div>
                 </div>
             </article>
         </div>

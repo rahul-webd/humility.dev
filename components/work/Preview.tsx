@@ -14,7 +14,7 @@ const altDefault = 'default image showing a blurred gradient'
 const Preview = ({ data, className = '' }: PreviewProps) => {
     const router = useRouter()
 
-    const { title, bannerImage } = data.fields
+    const { title, bannerImage, shortDescription } = data.fields
     const imgUrl = bannerImage?.fields.file.url
     const imgSrc = imgUrl ? `https:${imgUrl}` : srcDefault
     const imgAlt = bannerImage?.fields.title || altDefault
@@ -24,34 +24,43 @@ const Preview = ({ data, className = '' }: PreviewProps) => {
         router.push(`/work/${id}`)
     }
 
-
     return (
         <div
             onClick={navPost}
-            className={`bg-amber-100 border
-                rounded-xl max-w-[320px]
-                transition duration-300
-                shadow hover:-translate-y-3
-                hover:shadow-xl cursor-pointer ${className}`}>
+            className={`bg-white border w-full
+                rounded-md shadow hover:-translate-y-3
+                hover:shadow-xl cursor-pointer transition
+                duration-300 grid grid-cols-1 md:grid-cols-3 px-4 py-6
+                md:px-6 gap-y-4 md:gap-x-4 ${className}`}>
             <div
-                className="relative overflow-hidden p-3">
+                className="border-2 border-neutral-300 rounded
+                    overflow-hidden h-48 md:h-40">
                 <Image
                     src={imgSrc}
                     alt={imgAlt}
-                    height={220}
-                    width={296}
+                    height={300}
+                    width={400}
                     objectFit="cover"
                     placeholder="blur"
-                    blurDataURL='/work/placeholder.jpg'
-                    className="rounded-xl" />
+                    blurDataURL='/work/placeholder.jpg' />
             </div>
-            <article
-                className="px-5 pt-1 pb-4">
+            <div
+                className="col-span-2 flex 
+                    flex-col justify-center pl-0.5">
                 <p
-                    className="font-bold text-lg">
+                    className="font-bold text-lg mb-4">
                     {title}
                 </p>
-            </article>
+                {
+                    shortDescription
+                        && (
+                            <p
+                                className="text-sm text-neutral-600">
+                                {shortDescription}
+                            </p>
+                        )
+                }
+            </div>
         </div>
     )
 }

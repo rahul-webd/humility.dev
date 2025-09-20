@@ -27,7 +27,7 @@ const Experience = ({
                 <div
                     className="flex justify-center">
                     <Stat
-                        count={2}
+                        count={4}
                         title="Years of experience"
                         className="mr-8 md:mr-16" />
                     <Stat
@@ -44,10 +44,13 @@ const Experience = ({
                     development.
                 </P1>
                 <P2>
-                    In past 2 years, I have worked on large blockchain 
-                    projects like building NFT Marketplaces 
-                    and community management apps and building
-                    their backend to synchronize with the blockchain.
+                    For the past four years, I&apos;ve specialized in 
+                    building large-scale e-commerce applications and 
+                    custom software solutions. My work goes beyond 
+                    standard websites; I focus on gaining a deep 
+                    understanding of market needs and then executing 
+                    a strategic plan to deliver a robust 
+                    and effective application.                
                 </P2>
             </article>
         </div>

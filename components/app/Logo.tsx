@@ -10,7 +10,7 @@ const Logo = ({
         <div
             className={className}>
             <p className="font-medium text-lg">
-                hum<span className="text-green-900 mx-px text-base">{'</>'}</span>ty
+                No Hassle
             </p>
             <div
                 className="h-0.5 w-4 bg-green-600">

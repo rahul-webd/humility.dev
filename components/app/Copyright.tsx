@@ -10,7 +10,7 @@ const Copyright = ({
         <section
             className={`font-semibold text-center ${className}`}>
             <p>
-                ©️ 2022-2023 humility.dev
+                ©️ 2025-2026 nohassle.dev
             </p>
         </section>
     )

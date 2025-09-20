@@ -40,7 +40,7 @@ const usePosts = (contentType: string, type: string) => {
                 skip: sConfig.skip,
                 limit: sConfig.limit,
                 'metadata.tags.sys.id[all]': `${type}`,
-                select: 'fields.bannerImage,fields.title,fields.date',
+                select: 'fields.bannerImage,fields.title,fields.date,fields.shortDescription',
                 order: '-sys.createdAt'
             })
 

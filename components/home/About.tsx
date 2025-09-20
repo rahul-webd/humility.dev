@@ -21,12 +21,13 @@ const About = ({ className = '' }: AboutProps) => {
                     md:mr-16 lg:mr-28">
                 <AsideText
                     className="-rotate-[10deg]">
-                    Backend In
+                    Software Craftsman
                 </AsideText>
                 <div
                     className="mb-8 flex flex-col items-center">
                     <Image
                         src={MyImg}
+                        alt="My Image"
                         height={240}
                         width={240}
                         style={{
@@ -49,7 +50,7 @@ const About = ({ className = '' }: AboutProps) => {
                 <AsideText
                     className="float-right rotate-[10deg]"
                     colors="bg-sky-600/50 text-sky-900">
-                    Frontend Out
+                    E-commerce Artisan
                 </AsideText>
             </div>
             <article

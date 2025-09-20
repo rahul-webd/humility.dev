@@ -19,16 +19,14 @@ const Work = ({ contentType, type, className = '' }: PostsProps) => {
                 ${className}`}>
             <ScrollObserver
                 action={next}
-                className='grid grid-cols-1 md:grid-cols-2
-                    lg:grid-cols-3 2xl:grid-cols-4'>
+                className='grid grid-cols-1 gap-6 max-w-4xl'>
                 {
                     sConfig.posts.map((post, i) => {
 
                         return (
                             <Preview
                                 key={i}
-                                data={post}
-                                className="m-4" />
+                                data={post} />
                         )
                     })
                 }

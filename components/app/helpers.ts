@@ -7,7 +7,7 @@ export const openLinkedin = () => {
 }
 
 export const openTg = () => {
-    window.open('https://t.me/rahul_443', '_blank')
+    window.open('https://t.me/apprehendere', '_blank')
 }
 
 export const openDiscord = () => {

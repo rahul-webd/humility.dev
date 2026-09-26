@@ -128,7 +128,8 @@ function Post ({ id, className = '' }: PostProps) {
                         className='mb-8 font-medium'>
                         {date.substring(0, 10)}
                     </h6>
-                    <div>
+                    <div
+                        className='whitespace-pre-wrap'>
                         {documentToReactComponents(description, options)}
                     </div>
                 </div>
